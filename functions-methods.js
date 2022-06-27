@@ -9,6 +9,16 @@
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
+const email = "drprijkers@me.com";
+
+function getEmailDomein( email )   {
+
+    const domainName = email.substring(email.indexOf("@") +1);
+    return domainName;
+}
+
+console.log(getEmailDomein( email ));
+
 
 
 
@@ -20,6 +30,19 @@
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
 
+
+function typeOfEmail( email )  {
+
+    if( email.includes("@novi.nl") )    {
+        return "Medewerker";
+    } else if ( email.includes( "@novi-education.nl")) {
+        return "Student";
+
+    } else  return "Extern";
+
+}
+
+console.log(typeOfEmail( email ));
 
 
 /* Opdracht  3 */
@@ -34,3 +57,17 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+function checkEmailValidity( email )   {
+
+    const validationEd = email.includes("@");
+    const validationComma = email.includes(",");
+    const validationPoint = email.charAt(email.length -1);
+
+   if( validationEd === true && validationComma !== true && validationPoint !== "." )    {
+       return true;
+   } else return false;
+
+}
+
+console.log( checkEmailValidity( email ));
